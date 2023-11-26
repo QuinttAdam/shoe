@@ -35,36 +35,71 @@ loader.load("public/models/Shoe_compressed.glb", (gltf) => {
   console.log(shoe);
 
   // Add an event listener to the color picker
-  const colorPicker = document.getElementById("colorPicker");
-  colorPicker.addEventListener("input", (event) => {
-  const selectedColor = event.target.value;
+  // const colorPicker = document.getElementById("colorPicker");
+  // colorPicker.addEventListener("input", (event) => {
+  // const selectedColor = event.target.value;
   
 
   shoe.traverse((child) => {
     if (child.isMesh) {
       if (child.name === "inside") {
+        const colorPicker = document.getElementById("colorPickerInside");
+        colorPicker.addEventListener("input", (event) => {
+        const selectedColor = event.target.value;
+
         child.material.color.set(selectedColor);
+        });
       }
       if (child.name === "laces") {
-        child.material.color.set("orange");
+        const colorPicker = document.getElementById("colorPickerLaces");
+        colorPicker.addEventListener("input", (event) => {
+        const selectedColor = event.target.value;
+
+        child.material.color.set(selectedColor);
+        });
       }
       if (child.name === "outside_1") {
-        child.material.color.set("yellow");
+        const colorPicker = document.getElementById("colorPickerOutside_1");
+        colorPicker.addEventListener("input", (event) => {
+        const selectedColor = event.target.value;
+
+        child.material.color.set(selectedColor);
+        });
       }
       if (child.name === "outside_2") {
-        child.material.color.set("purple");
+        const colorPicker = document.getElementById("colorPickerOutside_2");
+        colorPicker.addEventListener("input", (event) => {
+        const selectedColor = event.target.value;
+
+        child.material.color.set(selectedColor);
+        });
       }
       if (child.name === "outside_3") {
-        child.material.color.set("red");
+        const colorPicker = document.getElementById("colorPickerOutside_3");
+        colorPicker.addEventListener("input", (event) => {
+        const selectedColor = event.target.value;
+
+        child.material.color.set(selectedColor);
+        });
       }
       if (child.name === "sole_bottom") {
-        child.material.color.set("blue");
+        const colorPicker = document.getElementById("colorPickerSole_bottom");
+        colorPicker.addEventListener("input", (event) => {
+        const selectedColor = event.target.value;
+
+        child.material.color.set(selectedColor);
+        });
       }
       if (child.name === "sole_top") {
-        child.material.color.set("brown");
+        const colorPicker = document.getElementById("colorPickerSole_top");
+        colorPicker.addEventListener("input", (event) => {
+        const selectedColor = event.target.value;
+
+        child.material.color.set(selectedColor);
+        });
       }
     }
-  });
+  // });
   });
 
   scene.add(gltf.scene);
@@ -84,7 +119,7 @@ function animate() {
   requestAnimationFrame(animate);
   const elapsedTime = clock.getElapsedTime();
 
-  shoe.rotation.y += 0.005;
+  // shoe.rotation.y += 0.005;
 
   renderer.render(scene, camera);
 }
