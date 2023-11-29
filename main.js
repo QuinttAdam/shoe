@@ -14,6 +14,8 @@ const camera = new THREE.PerspectiveCamera(
 const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
+renderer.setClearColor(0xffffff); // Set the background color to white
+
 
 const controls = new OrbitControls(camera, renderer.domElement);
 
@@ -33,12 +35,6 @@ loader.load("public/models/Shoe_compressed.glb", (gltf) => {
 
   shoe = gltf.scene.children[0];
   console.log(shoe);
-
-  // Add an event listener to the color picker
-  // const colorPicker = document.getElementById("colorPicker");
-  // colorPicker.addEventListener("input", (event) => {
-  // const selectedColor = event.target.value;
-  
 
   shoe.traverse((child) => {
     if (child.isMesh) {
@@ -99,7 +95,6 @@ loader.load("public/models/Shoe_compressed.glb", (gltf) => {
         });
       }
     }
-  // });
   });
 
   scene.add(gltf.scene);
